@@ -1,0 +1,274 @@
+/* ============================================================
+   SERVICES
+   ============================================================ */
+
+.services__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.services__header .eyebrow { justify-content: center; }
+.services__header .section-sub { margin: 0 auto; }
+
+/* === Vehicle Tabs === */
+.services__vehicle-tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 3rem;
+}
+
+.services__vehicle-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-400);
+}
+
+.services__vehicle-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.services__pill {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.3rem;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--border-subtle);
+  color: var(--text-300);
+  background: transparent;
+  transition: all var(--ease-base);
+  cursor: pointer;
+}
+.services__pill:hover {
+  border-color: var(--border-medium);
+  color: var(--text-100);
+  background: rgba(0,148,255,0.06);
+}
+.services__pill--active {
+  background: rgba(0,148,255,0.14);
+  border-color: var(--blue-400);
+  color: var(--blue-200);
+  box-shadow: var(--glow-xs);
+}
+
+/* === Cards Grid === */
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* === Individual Card === */
+.services__card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: var(--shadow-card);
+  transition: all var(--ease-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.services__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue-600), var(--blue-400));
+  opacity: 0;
+  transition: opacity var(--ease-base);
+}
+
+.services__card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-medium);
+  box-shadow: var(--glow-xs), var(--shadow-hover);
+}
+.services__card:hover::before { opacity: 1; }
+
+/* Popular card */
+.services__card--popular {
+  border-color: rgba(255,190,50,0.35);
+  background: linear-gradient(160deg, #16201a 0%, var(--bg-card) 50%);
+  transform: scale(1.025);
+}
+.services__card--popular::before {
+  background: linear-gradient(90deg, #f5a623, #ffd060);
+  opacity: 1;
+}
+.services__card--popular:hover {
+  transform: scale(1.025) translateY(-6px);
+  border-color: rgba(255,190,50,0.6);
+  box-shadow: 0 0 20px rgba(255,190,50,0.2), var(--shadow-hover);
+}
+
+.services__card--gold .services__name { color: #ffd060; }
+.services__card--silver .services__name { color: var(--silver-200); }
+
+/* === Popular badge === */
+.services__popular-badge {
+  position: absolute;
+  top: 0;
+  right: 1.2rem;
+  background: linear-gradient(135deg, #e08800, #ffd060);
+  color: #1a1200;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 800;
+  font-size: 0.73rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem 0.5rem;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+
+/* === Card top === */
+.services__card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.services__icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.services__name {
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+  color: var(--text-100);
+  line-height: 1;
+}
+
+.services__tagline {
+  font-size: 0.9rem;
+  color: var(--text-400);
+  line-height: 1.4;
+}
+
+/* === Price row === */
+.services__price-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--border-faint);
+  border-bottom: 1px solid var(--border-faint);
+}
+
+.services__price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+.services__price-from {
+  font-size: 0.78rem;
+  color: var(--text-400);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.services__price-amount {
+  font-size: 2.8rem;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, var(--blue-300), var(--blue-100));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all var(--ease-fast);
+}
+
+.services__card--popular .services__price-amount {
+  background: linear-gradient(135deg, #f5c030, #ffeaa0);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.services__price-unit {
+  font-size: 0.8rem;
+  color: var(--text-500);
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.services__duration {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text-400);
+}
+
+/* === Features list === */
+.services__features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.services__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+  color: var(--text-300);
+  line-height: 1.4;
+}
+.services__feature svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  stroke: var(--blue-400);
+}
+
+/* === Book button === */
+.services__btn {
+  width: 100%;
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+
+/* === Disclaimer === */
+.services__disclaimer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-400);
+  margin-top: 2.5rem;
+  font-style: italic;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1200px) {
+  .services__grid { grid-template-columns: repeat(2, 1fr); }
+  .services__card--popular { transform: scale(1); }
+  .services__card--popular:hover { transform: translateY(-6px); }
+}
+
+@media (max-width: 640px) {
+  .services__grid { grid-template-columns: 1fr; }
+}

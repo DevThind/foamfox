@@ -1,0 +1,138 @@
+/* ============================================================
+   FAQ
+   ============================================================ */
+
+.faq__layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+/* === Header column === */
+.faq__header {
+  position: sticky;
+  top: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.faq__contact-strip {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.faq__call-btn,
+.faq__book-btn {
+  font-size: 0.9rem;
+  padding: 0.7rem 1.5rem;
+}
+
+/* === Accordion list === */
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.faq__item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--ease-base);
+}
+.faq__item:hover,
+.faq__item--open {
+  border-color: var(--border-medium);
+}
+.faq__item--open {
+  box-shadow: var(--glow-xs);
+}
+
+.faq__question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.2rem 1.4rem;
+  text-align: left;
+  background: transparent;
+  cursor: pointer;
+  transition: background var(--ease-fast);
+}
+.faq__question:hover {
+  background: rgba(0,148,255,0.04);
+}
+
+.faq__q-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: 0.03em;
+  color: var(--text-100);
+  line-height: 1.4;
+  flex: 1;
+}
+.faq__item--open .faq__q-text {
+  color: var(--blue-200);
+}
+
+.faq__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: rgba(0,148,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-400);
+  flex-shrink: 0;
+  transition: all var(--ease-base);
+}
+.faq__item--open .faq__icon {
+  background: rgba(0,148,255,0.18);
+  transform: rotate(180deg);
+}
+
+/* Accordion answer — pure CSS max-height trick */
+.faq__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.faq__item--open .faq__answer {
+  max-height: 400px;
+}
+
+.faq__answer-inner {
+  padding: 0 1.4rem 1.4rem;
+  border-top: 1px solid var(--border-faint);
+}
+.faq__answer-inner p {
+  font-size: 0.96rem;
+  color: var(--text-300);
+  line-height: 1.75;
+  padding-top: 1rem;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .faq__layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .faq__header {
+    position: static;
+    text-align: center;
+    align-items: center;
+  }
+  .faq__contact-strip { justify-content: center; }
+}

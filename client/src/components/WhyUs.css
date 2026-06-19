@@ -1,0 +1,116 @@
+/* ============================================================
+   WHY US
+   ============================================================ */
+
+.whyus__header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.whyus__header .eyebrow { justify-content: center; }
+.whyus__header .section-sub { margin: 0 auto; }
+
+.whyus__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.whyus__card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  transition: all var(--ease-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.whyus__card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top left, rgba(0,148,255,0.06) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity var(--ease-base);
+  pointer-events: none;
+}
+
+.whyus__card:hover {
+  border-color: var(--border-medium);
+  box-shadow: var(--glow-xs), var(--shadow-hover);
+  transform: translateY(-4px);
+}
+.whyus__card:hover::after { opacity: 1; }
+
+.whyus__icon-wrap {
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-md);
+  background: rgba(0,148,255,0.1);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-400);
+  transition: all var(--ease-base);
+  flex-shrink: 0;
+}
+.whyus__card:hover .whyus__icon-wrap {
+  background: rgba(0,148,255,0.18);
+  border-color: var(--border-medium);
+  box-shadow: var(--glow-xs);
+  color: var(--blue-200);
+}
+
+.whyus__title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-100);
+}
+
+.whyus__desc {
+  font-size: 0.93rem;
+  color: var(--text-300);
+  line-height: 1.7;
+}
+
+/* CTA strip */
+.whyus__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3.5rem;
+  padding: 2.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.whyus__cta-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-200);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .whyus__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 540px) {
+  .whyus__grid { grid-template-columns: 1fr; }
+  .whyus__cta { flex-direction: column; gap: 1.25rem; }
+}

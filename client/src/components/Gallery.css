@@ -1,0 +1,274 @@
+/* ============================================================
+   GALLERY
+   ============================================================ */
+
+.gallery__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.gallery__header .eyebrow  { justify-content: center; }
+.gallery__header .section-sub { margin: 0 auto; }
+
+/* === Before/After Slider === */
+.gallery__main {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--glow-sm), var(--shadow-card);
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-subtle);
+}
+
+.ba-slider {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  cursor: ew-resize;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Layers */
+.ba-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ba-before { z-index: 1; }
+.ba-after  { z-index: 2; transition: clip-path 0.03s linear; }
+
+/* Car silhouette placeholder (real images replace this) */
+.ba-car-silhouette {
+  width: 65%;
+  height: 55%;
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+.ba-car--dirty {
+  background: linear-gradient(135deg, rgba(80,60,30,0.6), rgba(50,40,20,0.4));
+  border: 1px solid rgba(150,120,60,0.3);
+  filter: saturate(0.4) brightness(0.6);
+}
+
+.ba-car--clean {
+  background: linear-gradient(135deg, rgba(0,80,180,0.3), rgba(0,120,240,0.15));
+  border: 1px solid rgba(0,148,255,0.4);
+  box-shadow: 0 0 40px rgba(0,148,255,0.2);
+  filter: brightness(1.2);
+}
+
+/* Labels */
+.ba-label {
+  position: absolute;
+  bottom: 1.2rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(8px);
+}
+
+.ba-label--before {
+  left: 1.2rem;
+  background: rgba(180,80,30,0.7);
+  color: #ffe4cc;
+  border: 1px solid rgba(220,100,40,0.5);
+}
+
+.ba-label--after {
+  right: 1.2rem;
+  background: rgba(0,80,180,0.65);
+  color: var(--blue-100);
+  border: 1px solid var(--border-medium);
+}
+
+/* Divider */
+.ba-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  width: 3px;
+  background: linear-gradient(180deg, transparent, var(--blue-400), transparent);
+  transform: translateX(-50%);
+  box-shadow: 0 0 12px rgba(0,148,255,0.6);
+}
+
+.ba-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--blue-500);
+  border: 2.5px solid rgba(255,255,255,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 0 16px rgba(0,148,255,0.6), 0 2px 8px rgba(0,0,0,0.4);
+  cursor: ew-resize;
+  transition: transform var(--ease-fast);
+}
+.ba-handle:hover { transform: translate(-50%, -50%) scale(1.1); }
+
+/* Badge */
+.ba-badge {
+  position: absolute;
+  top: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.ba-badge-service {
+  background: rgba(0,148,255,0.18);
+  border: 1px solid var(--border-medium);
+  color: var(--blue-200);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.9rem;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(8px);
+}
+
+.ba-badge-vehicle {
+  background: rgba(0,0,0,0.45);
+  color: var(--text-300);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.9rem;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(8px);
+}
+
+/* === Thumbnails === */
+.gallery__thumbs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.gallery__thumb {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-subtle);
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--ease-base);
+}
+.gallery__thumb:hover {
+  border-color: var(--border-medium);
+  background: rgba(0,148,255,0.06);
+}
+.gallery__thumb--active {
+  border-color: var(--blue-400);
+  background: rgba(0,148,255,0.1);
+  box-shadow: var(--glow-xs);
+}
+
+.gallery__thumb-preview {
+  width: 52px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  border: 1px solid var(--border-subtle);
+}
+
+.gallery__thumb-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.06em;
+  color: var(--text-100);
+}
+.gallery__thumb-vehicle {
+  font-size: 0.8rem;
+  color: var(--text-400);
+  margin-top: 0.2rem;
+}
+
+/* === Instagram strip === */
+.gallery__instagram {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.75rem 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  flex-wrap: wrap;
+}
+
+.gallery__ig-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(140,58,255,0.25), rgba(255,60,100,0.2));
+  border: 1px solid rgba(180,80,220,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cc80ff;
+  flex-shrink: 0;
+}
+
+.gallery__ig-text { flex: 1; min-width: 0; }
+.gallery__ig-heading {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  color: var(--text-100);
+}
+.gallery__ig-sub {
+  font-size: 0.88rem;
+  color: var(--text-400);
+  margin-top: 0.2rem;
+}
+
+.gallery__ig-btn {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  padding: 0.7rem 1.4rem;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .ba-slider { height: 300px; }
+  .gallery__thumbs { grid-template-columns: 1fr; }
+  .gallery__instagram { flex-direction: column; text-align: center; }
+  .gallery__ig-icon { margin: 0 auto; }
+}
+
+@media (max-width: 480px) {
+  .ba-slider { height: 240px; }
+  .ba-label { font-size: 0.72rem; padding: 0.3rem 0.7rem; }
+}
