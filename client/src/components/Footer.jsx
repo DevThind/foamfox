@@ -1,3 +1,4 @@
+import { WHATSAPP_BOOKING_URL } from '../utils/contact'
 import './Footer.css'
 
 const LINKS = {
@@ -26,11 +27,15 @@ export default function Footer() {
 
   const scrollTo = (e, href) => {
     e.preventDefault()
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+    if (window.location.hash === href) {
+      window.dispatchEvent(new HashChangeEvent('hashchange'))
+    } else {
+      window.location.hash = href
+    }
   }
 
   return (
-    <footer className="footer" id="contact">
+    <footer className="footer" id="footer-contact">
       {/* Top CTA banner */}
       <div className="footer__banner">
         <div className="container footer__banner-inner">
@@ -43,7 +48,12 @@ export default function Footer() {
             </p>
           </div>
           <div className="footer__banner-actions">
-            <a href="#booking" className="btn btn-primary" onClick={(e) => scrollTo(e, '#booking')}>
+            <a
+              href={WHATSAPP_BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
               Book Now
             </a>
             <a href="tel:4379292037" className="btn btn-outline footer__call-btn">

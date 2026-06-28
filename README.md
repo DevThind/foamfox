@@ -1,6 +1,6 @@
 # 🦊 Foam Fox Auto Detailing — Full-Stack Website
 
-A production-ready **MERN stack** (MongoDB, Express, React, Node.js) website for **Foam Fox Auto Detailing**, a premium mobile car detailing business serving the Greater Toronto Area.
+A production-ready **full-stack** (Express, React, Node.js) website for **Foam Fox Auto Detailing**, a premium mobile car detailing business serving the Greater Toronto Area.
 
 ---
 
@@ -21,15 +21,11 @@ A production-ready **MERN stack** (MongoDB, Express, React, Node.js) website for
 - 🔔 Toast notifications for form feedback
 - 🍔 Mobile hamburger navigation drawer
 
-### Backend (Node.js + Express + MongoDB)
-- 📅 Booking submissions stored in MongoDB
-- 📧 Automated email confirmations (client) + admin alerts (Nodemailer)
+### Backend (Node.js + Express)
+- Booking/contact submissions are validated and sent by email when configured`n- 📧 Automated email confirmations (client) + admin alerts (Nodemailer)
 - ✅ Input validation with express-validator
 - 🔒 Security: Helmet, CORS, rate limiting
-- 📊 Admin API to list/update bookings (protected by secret header)
-- 🔄 Automatic DB reconnect on disconnect
 - 📝 Request logging with Morgan
-- ⚡ Booking status management: pending → confirmed → completed
 
 ---
 
@@ -37,7 +33,6 @@ A production-ready **MERN stack** (MongoDB, Express, React, Node.js) website for
 
 ### Prerequisites
 - Node.js ≥ 18
-- MongoDB Atlas account (free tier) → https://cloud.mongodb.com
 
 ### 1. Clone / Extract the project
 
@@ -61,7 +56,6 @@ cp .env.example .env
 ```
 
 Edit `server/.env` and fill in:
-- `MONGODB_URI` — your MongoDB Atlas connection string
 - `ADMIN_SECRET` — a secure random string for admin API access
 - `EMAIL_*` — Gmail credentials for email notifications (optional but recommended)
 - `ADMIN_EMAIL` — where booking alerts are sent
@@ -229,8 +223,9 @@ The site is mobile-first responsive, collapsing to single-column layouts on phon
 
 Built for **Foam Fox Auto Detailing** · GTA & Surroundings · `437-929-2037`
 
-Tech: React 18 · Vite 5 · Node.js · Express 4 · MongoDB / Mongoose · Nodemailer
+Tech: React 18 · Vite 5 · Node.js · Express 4 · Nodemailer
 
 ---
 
-*Last updated: 2025 · Production-ready MERN stack website*
+*Last updated: 2025 · Production-ready full-stack website*
+

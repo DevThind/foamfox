@@ -1,4 +1,8 @@
 import { useState, useRef, useCallback } from 'react'
+import interiorBefore from '../assets/gallery/interior-before.jpeg'
+import interiorAfter from '../assets/gallery/interior-after.jpeg'
+import exteriorBefore from '../assets/gallery/exterior-before.jpeg'
+import exteriorAfter from '../assets/gallery/exterior-after.jpeg'
 import './Gallery.css'
 
 /* Before/After items — using CSS gradients as placeholders (replace with real photos) */
@@ -8,30 +12,20 @@ const BEFORE_AFTER = [
     label: 'Interior Shampoo',
     vehicle: 'SUV',
     service: 'Interior Detail',
-    before: 'linear-gradient(135deg, #2a1a0a 0%, #3d2510 50%, #1f1208 100%)',
-    after:  'linear-gradient(135deg, #1a2535 0%, #243040 50%, #0e1a28 100%)',
-    beforeLabel: 'Stained & Worn',
-    afterLabel:  'Like-New Finish',
+    before: interiorBefore,
+    after: interiorAfter,
+    beforeLabel: 'Before',
+    afterLabel: 'After',
   },
   {
     id: 2,
-    label: 'Exterior Wash',
-    vehicle: 'Sedan',
+    label: 'Exterior Foam',
+    vehicle: 'SUV',
     service: 'Exterior Detail',
-    before: 'linear-gradient(135deg, #1e1e14 0%, #2a2a18 50%, #111108 100%)',
-    after:  'linear-gradient(135deg, #0a1622 0%, #122030 50%, #060e18 100%)',
-    beforeLabel: 'Road Grime & Bugs',
-    afterLabel:  'Showroom Shine',
-  },
-  {
-    id: 3,
-    label: 'Full Detail',
-    vehicle: 'Truck',
-    service: 'Premium Package',
-    before: 'linear-gradient(135deg, #251510 0%, #301a10 50%, #180c08 100%)',
-    after:  'linear-gradient(135deg, #0c1820 0%, #142433 50%, #080f18 100%)',
-    beforeLabel: 'Heavy Build-Up',
-    afterLabel:  'Ceramic Protected',
+    before: exteriorBefore,
+    after: exteriorAfter,
+    beforeLabel: 'Before',
+    afterLabel: 'After',
   },
 ]
 
@@ -71,18 +65,16 @@ function BeforeAfterSlider({ item }) {
       {/* Before layer */}
       <div
         className="ba-layer ba-before"
-        style={{ background: item.before }}
+        style={{ '--gallery-image': `url(${item.before})` }}
       >
-        <div className="ba-car-silhouette ba-car--dirty" />
         <span className="ba-label ba-label--before">{item.beforeLabel}</span>
       </div>
 
       {/* After layer (clipped) */}
       <div
         className="ba-layer ba-after"
-        style={{ background: item.after, clipPath: `inset(0 ${100 - split}% 0 0)` }}
+        style={{ '--gallery-image': `url(${item.after})`, clipPath: `inset(0 ${100 - split}% 0 0)` }}
       >
-        <div className="ba-car-silhouette ba-car--clean" />
         <span className="ba-label ba-label--after">{item.afterLabel}</span>
       </div>
 
@@ -98,12 +90,6 @@ function BeforeAfterSlider({ item }) {
             <path d="M7 9l-4 3 4 3M17 9l4 3-4 3"/>
           </svg>
         </div>
-      </div>
-
-      {/* Badge */}
-      <div className="ba-badge">
-        <span className="ba-badge-service">{item.service}</span>
-        <span className="ba-badge-vehicle">{item.vehicle}</span>
       </div>
     </div>
   )
@@ -143,7 +129,7 @@ export default function Gallery() {
             >
               <div
                 className="gallery__thumb-preview"
-                style={{ background: item.after }}
+                style={{ backgroundImage: `url(${item.after})` }}
               />
               <div className="gallery__thumb-info">
                 <p className="gallery__thumb-label">{item.label}</p>

@@ -7,3 +7,8 @@
 main {
   flex: 1;
 }
+
+.app main > .section:first-child,
+.app main > #contact > .section:first-child {
+  padding-top: calc(var(--section-py) + 6rem);
+}

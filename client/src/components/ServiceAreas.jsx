@@ -1,3 +1,4 @@
+import { WHATSAPP_BOOKING_URL } from '../utils/contact'
 import './ServiceAreas.css'
 
 const CITIES = [
@@ -53,7 +54,12 @@ export default function ServiceAreas() {
               </div>
             </div>
 
-            <a href="#booking" className="btn btn-primary areas__cta">
+            <a
+              href={WHATSAPP_BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary areas__cta"
+            >
               Check My Area & Book
             </a>
           </div>

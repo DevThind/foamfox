@@ -1,3 +1,4 @@
+import { WHATSAPP_BOOKING_URL } from '../utils/contact'
 import './WhyUs.css'
 
 const FEATURES = [
@@ -57,6 +58,12 @@ const FEATURES = [
   },
 ]
 
+const PROMISES = [
+  { value: '01', label: 'Inspect', text: 'We assess paint, trim, carpet, seats, and problem areas before starting.' },
+  { value: '02', label: 'Detail', text: 'We clean in stages with paint-safe products and interior-specific tools.' },
+  { value: '03', label: 'Finish', text: 'We review the vehicle with you and handle touch-ups before we leave.' },
+]
+
 export default function WhyUs() {
   return (
     <section className="whyus section" id="why-us">
@@ -74,10 +81,22 @@ export default function WhyUs() {
           </p>
         </div>
 
+        <div className="whyus__proof">
+          {PROMISES.map((item) => (
+            <div key={item.value} className="whyus__proof-step">
+              <span className="whyus__proof-number">{item.value}</span>
+              <div>
+                <h3>{item.label}</h3>
+                <p>{item.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
         {/* Feature grid */}
         <div className="whyus__grid">
           {FEATURES.map((f, i) => (
-            <div key={f.title} className={`whyus__card reveal delay-${i + 1}`}>
+            <div key={f.title} className="whyus__card">
               <div className="whyus__icon-wrap" aria-hidden="true">
                 {f.icon}
               </div>
@@ -88,11 +107,16 @@ export default function WhyUs() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="whyus__cta reveal">
+        <div className="whyus__cta">
           <p className="whyus__cta-text">
             Ready to experience the Foam Fox difference?
           </p>
-          <a href="#booking" className="btn btn-primary">
+          <a
+            href={WHATSAPP_BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+          >
             Book Your Detail Today
           </a>
         </div>

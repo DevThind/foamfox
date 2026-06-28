@@ -2,12 +2,72 @@
    WHY US
    ============================================================ */
 
+.whyus {
+  padding-top: 4rem;
+  padding-bottom: 4.5rem;
+}
+
 .whyus__header {
   text-align: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: 1.35rem;
 }
 .whyus__header .eyebrow { justify-content: center; }
-.whyus__header .section-sub { margin: 0 auto; }
+.whyus__header .section-heading { margin-bottom: 0.75rem; }
+.whyus__header .section-sub {
+  margin: 0 auto;
+  line-height: 1.55;
+}
+
+.whyus__proof {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin: 0 auto 2.25rem;
+  max-width: 1040px;
+  border: 1px solid rgba(196,212,232,0.12);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018)),
+    rgba(6,10,20,0.66);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.whyus__proof-step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  padding: 1.25rem 1.4rem;
+  min-width: 0;
+}
+
+.whyus__proof-step + .whyus__proof-step {
+  border-left: 1px solid rgba(196,212,232,0.1);
+}
+
+.whyus__proof-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.1rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--blue-300);
+  text-shadow: 0 0 16px rgba(0,148,255,0.28);
+}
+
+.whyus__proof-step h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.02rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-100);
+  margin-bottom: 0.2rem;
+}
+
+.whyus__proof-step p {
+  color: var(--text-300);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
 
 .whyus__grid {
   display: grid;
@@ -18,8 +78,8 @@
 .whyus__card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 2rem 1.75rem;
+  border-radius: var(--radius-md);
+  padding: 1.8rem 1.6rem;
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
@@ -86,10 +146,12 @@
   justify-content: center;
   gap: 2rem;
   margin-top: 3.5rem;
-  padding: 2.5rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
+  padding: 2rem;
+  background:
+    linear-gradient(135deg, rgba(0,148,255,0.16), rgba(255,255,255,0.03)),
+    var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
   flex-wrap: wrap;
   text-align: center;
 }
@@ -108,6 +170,11 @@
 
 @media (max-width: 900px) {
   .whyus__grid { grid-template-columns: repeat(2, 1fr); }
+  .whyus__proof { grid-template-columns: 1fr; }
+  .whyus__proof-step + .whyus__proof-step {
+    border-left: none;
+    border-top: 1px solid rgba(196,212,232,0.1);
+  }
 }
 
 @media (max-width: 540px) {

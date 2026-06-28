@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { WHATSAPP_BOOKING_URL } from '../utils/contact'
 import './FAQ.css'
 
 const FAQS = [
@@ -71,7 +72,12 @@ export default function FAQ() {
                 </svg>
                 Call Us
               </a>
-              <a href="#booking" className="btn btn-outline faq__book-btn">
+              <a
+                href={WHATSAPP_BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline faq__book-btn"
+              >
                 Book Now
               </a>
             </div>

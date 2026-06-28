@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { WHATSAPP_BOOKING_URL } from '../utils/contact'
 import './Services.css'
 
 const VEHICLE_TYPES = ['Sedan', 'SUV (5-Seat)', 'SUV (7-Seat)', 'Minivan', 'Truck']
@@ -169,7 +170,12 @@ export default function Services() {
                 ))}
               </ul>
 
-              <a href="#booking" className={`btn ${svc.popular ? 'btn-primary' : 'btn-outline'} services__btn`}>
+              <a
+                href={WHATSAPP_BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`btn ${svc.popular ? 'btn-primary' : 'btn-outline'} services__btn`}
+              >
                 Book This Package
               </a>
             </div>

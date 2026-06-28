@@ -16,16 +16,21 @@
   box-shadow: var(--glow-sm), var(--shadow-card);
   margin-bottom: 2rem;
   border: 1px solid var(--border-subtle);
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #05070a;
 }
 
 .ba-slider {
   position: relative;
   width: 100%;
-  height: 420px;
+  height: 360px;
   overflow: hidden;
   cursor: ew-resize;
   user-select: none;
   -webkit-user-select: none;
+  background: #05070a;
 }
 
 /* Layers */
@@ -35,35 +40,40 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #05070a;
+}
+
+.ba-layer::before,
+.ba-layer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.ba-layer::before {
+  background-image: var(--gallery-image);
+  background-size: cover;
+  filter: blur(18px);
+  opacity: 0.42;
+  transform: scale(1.08);
+}
+
+.ba-layer::after {
+  background-image: var(--gallery-image);
+  background-size: contain;
+  z-index: 1;
 }
 
 .ba-before { z-index: 1; }
 .ba-after  { z-index: 2; transition: clip-path 0.03s linear; }
 
-/* Car silhouette placeholder (real images replace this) */
-.ba-car-silhouette {
-  width: 65%;
-  height: 55%;
-  border-radius: var(--radius-md);
-  position: relative;
-}
-
-.ba-car--dirty {
-  background: linear-gradient(135deg, rgba(80,60,30,0.6), rgba(50,40,20,0.4));
-  border: 1px solid rgba(150,120,60,0.3);
-  filter: saturate(0.4) brightness(0.6);
-}
-
-.ba-car--clean {
-  background: linear-gradient(135deg, rgba(0,80,180,0.3), rgba(0,120,240,0.15));
-  border: 1px solid rgba(0,148,255,0.4);
-  box-shadow: 0 0 40px rgba(0,148,255,0.2);
-  filter: brightness(1.2);
-}
-
 /* Labels */
 .ba-label {
   position: absolute;
+  z-index: 2;
   bottom: 1.2rem;
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
@@ -121,50 +131,10 @@
 }
 .ba-handle:hover { transform: translate(-50%, -50%) scale(1.1); }
 
-/* Badge */
-.ba-badge {
-  position: absolute;
-  top: 1.2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  z-index: 4;
-  pointer-events: none;
-}
-
-.ba-badge-service {
-  background: rgba(0,148,255,0.18);
-  border: 1px solid var(--border-medium);
-  color: var(--blue-200);
-  font-family: 'Rajdhani', sans-serif;
-  font-weight: 700;
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.3rem 0.9rem;
-  border-radius: var(--radius-full);
-  backdrop-filter: blur(8px);
-}
-
-.ba-badge-vehicle {
-  background: rgba(0,0,0,0.45);
-  color: var(--text-300);
-  font-family: 'Rajdhani', sans-serif;
-  font-weight: 600;
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.3rem 0.9rem;
-  border-radius: var(--radius-full);
-  backdrop-filter: blur(8px);
-}
-
 /* === Thumbnails === */
 .gallery__thumbs {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin-bottom: 2.5rem;
 }
@@ -197,6 +167,9 @@
   border-radius: var(--radius-sm);
   flex-shrink: 0;
   border: 1px solid var(--border-subtle);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .gallery__thumb-label {
@@ -262,13 +235,13 @@
    ============================================================ */
 
 @media (max-width: 768px) {
-  .ba-slider { height: 300px; }
+  .ba-slider { height: 280px; }
   .gallery__thumbs { grid-template-columns: 1fr; }
   .gallery__instagram { flex-direction: column; text-align: center; }
   .gallery__ig-icon { margin: 0 auto; }
 }
 
 @media (max-width: 480px) {
-  .ba-slider { height: 240px; }
+  .ba-slider { height: 220px; }
   .ba-label { font-size: 0.72rem; padding: 0.3rem 0.7rem; }
 }

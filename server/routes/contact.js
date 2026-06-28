@@ -1,8 +1,7 @@
-const express    = require('express')
+const express = require('express')
 const { body, validationResult } = require('express-validator')
-const rateLimit   = require('express-rate-limit')
-const nodemailer  = require('nodemailer')
-const Contact     = require('../models/Contact')
+const rateLimit = require('express-rate-limit')
+const nodemailer = require('nodemailer')
 
 const router = express.Router()
 
@@ -20,6 +19,14 @@ const contactValidation = [
   body('message').trim().notEmpty().withMessage('Message is required').isLength({ min: 10, max: 2000 }),
 ]
 
+const escapeHtml = (value = '') =>
+  String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+
 /* POST /api/contact */
 router.post('/', contactLimiter, contactValidation, async (req, res, next) => {
   try {
@@ -28,29 +35,29 @@ router.post('/', contactLimiter, contactValidation, async (req, res, next) => {
       return res.status(422).json({
         success: false,
         message: 'Validation failed.',
-        errors:  errors.array().map((e) => ({ field: e.path, message: e.msg })),
+        errors: errors.array().map((e) => ({ field: e.path, message: e.msg })),
       })
     }
 
-    const contact = await Contact.create(req.body)
+    const contact = req.body
 
     /* Email admin */
     if (process.env.EMAIL_HOST) {
       const transporter = nodemailer.createTransport({
         host: process.env.EMAIL_HOST,
-        port: parseInt(process.env.EMAIL_PORT || '587'),
+        port: parseInt(process.env.EMAIL_PORT || '587', 10),
         secure: process.env.EMAIL_PORT === '465',
         auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
       })
 
       transporter.sendMail({
-        from:    `"Foam Fox Website" <${process.env.EMAIL_USER}>`,
-        to:      process.env.ADMIN_EMAIL || process.env.EMAIL_USER,
-        subject: `📬 Contact Form: ${contact.name} — ${contact.subject || 'General Inquiry'}`,
-        html:    `<p><strong>From:</strong> ${contact.name} &lt;${contact.email}&gt;</p>
-                  <p><strong>Phone:</strong> ${contact.phone || 'N/A'}</p>
-                  <p><strong>Subject:</strong> ${contact.subject || 'N/A'}</p>
-                  <p><strong>Message:</strong><br>${contact.message.replace(/\n/g, '<br>')}</p>`,
+        from: `"Foam Fox Website" <${process.env.EMAIL_USER}>`,
+        to: process.env.ADMIN_EMAIL || process.env.EMAIL_USER,
+        subject: `Contact Form: ${contact.name} - ${contact.subject || 'General Inquiry'}`,
+        html: `<p><strong>From:</strong> ${escapeHtml(contact.name)} &lt;${escapeHtml(contact.email)}&gt;</p>
+               <p><strong>Phone:</strong> ${escapeHtml(contact.phone || 'N/A')}</p>
+               <p><strong>Subject:</strong> ${escapeHtml(contact.subject || 'N/A')}</p>
+               <p><strong>Message:</strong><br>${escapeHtml(contact.message).replace(/\n/g, '<br>')}</p>`,
       }).catch(console.error)
     }
 
