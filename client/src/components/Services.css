@@ -270,5 +270,47 @@
 }
 
 @media (max-width: 640px) {
+  .services__header {
+    margin-bottom: 2rem;
+  }
+  .services__vehicle-tabs {
+    margin-bottom: 2rem;
+  }
+  .services__vehicle-pills {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    gap: 0.55rem;
+  }
+  .services__pill {
+    width: 100%;
+    padding: 0.55rem 0.45rem;
+    font-size: 0.76rem;
+    letter-spacing: 0.05em;
+  }
   .services__grid { grid-template-columns: 1fr; }
+  .services__card {
+    border-radius: var(--radius-md);
+    padding: 1.45rem 1.15rem;
+    gap: 1rem;
+  }
+  .services__name {
+    font-size: 1.38rem;
+  }
+  .services__price-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.65rem;
+    padding: 0.9rem 0;
+  }
+  .services__price-amount {
+    font-size: 2.45rem;
+  }
+  .services__feature {
+    font-size: 0.86rem;
+  }
+  .services__popular-badge {
+    right: 0.9rem;
+    font-size: 0.68rem;
+  }
 }

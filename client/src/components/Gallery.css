@@ -235,13 +235,44 @@
    ============================================================ */
 
 @media (max-width: 768px) {
-  .ba-slider { height: 280px; }
+  .gallery__header {
+    margin-bottom: 2rem;
+  }
+  .gallery__main {
+    border-radius: var(--radius-md);
+    margin-bottom: 1.25rem;
+  }
+  .ba-slider { height: 300px; }
   .gallery__thumbs { grid-template-columns: 1fr; }
-  .gallery__instagram { flex-direction: column; text-align: center; }
+  .gallery__instagram {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.9rem;
+    padding: 1.35rem 1rem;
+    border-radius: var(--radius-md);
+  }
   .gallery__ig-icon { margin: 0 auto; }
 }
 
 @media (max-width: 480px) {
-  .ba-slider { height: 220px; }
-  .ba-label { font-size: 0.72rem; padding: 0.3rem 0.7rem; }
+  .ba-slider { height: 270px; }
+  .ba-handle {
+    width: 38px;
+    height: 38px;
+  }
+  .ba-label {
+    bottom: 0.75rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    padding: 0.28rem 0.62rem;
+  }
+  .ba-label--before { left: 0.75rem; }
+  .ba-label--after { right: 0.75rem; }
+  .gallery__thumb {
+    padding: 0.78rem;
+  }
+  .gallery__ig-btn {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
 }

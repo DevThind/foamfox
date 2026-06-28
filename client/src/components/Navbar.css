@@ -233,11 +233,35 @@
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    padding: 0.75rem 0;
+  }
+  .navbar--scrolled {
+    padding: 0.55rem 0;
+  }
+  .navbar__inner {
+    gap: 1rem;
+  }
   .navbar__links { display: none; }
   .navbar__hamburger { display: flex; }
   .navbar__cta { display: none; }
   .navbar__logo-img {
-    width: 66px;
-    height: 66px;
+    width: 54px;
+    height: 54px;
+  }
+  .navbar__drawer {
+    width: min(300px, 88vw);
+    padding: 4.75rem 1.25rem 1.5rem;
+  }
+  .navbar__drawer-link,
+  .navbar__drawer-phone {
+    padding: 0.78rem 0.85rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .navbar__logo-img {
+    width: 48px;
+    height: 48px;
   }
 }

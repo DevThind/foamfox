@@ -235,12 +235,38 @@ a.footer__contact-item:hover { color: var(--blue-300); }
 @media (max-width: 768px) {
   .footer__grid { grid-template-columns: 1fr 1fr; }
   .footer__brand { flex-direction: column; }
-  .footer__banner-inner { flex-direction: column; text-align: center; }
-  .footer__banner-actions { justify-content: center; }
+  .footer__banner-inner {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 2.2rem;
+    padding-bottom: 2.2rem;
+  }
+  .footer__banner-actions {
+    justify-content: center;
+    width: 100%;
+  }
   .footer__bottom-inner { justify-content: center; text-align: center; flex-direction: column; }
 }
 
 @media (max-width: 480px) {
   .footer__grid { grid-template-columns: 1fr; }
-  .footer__banner-title { font-size: 1.8rem; }
+  .footer__main {
+    padding: 2.75rem 0 2rem;
+  }
+  .footer__grid {
+    gap: 2rem;
+  }
+  .footer__banner-title {
+    font-size: 1.8rem;
+    line-height: 1.05;
+  }
+  .footer__banner-sub {
+    font-size: 0.92rem;
+  }
+  .footer__banner-actions .btn {
+    max-width: none;
+  }
+  .footer__bottom-links {
+    gap: 1rem;
+  }
 }
