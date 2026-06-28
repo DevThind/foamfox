@@ -57,7 +57,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`} role="banner">
+    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''} ${menuOpen ? 'navbar--menu-open' : ''}`} role="banner">
       <div className="container navbar__inner">
         <a
           href="#home"
