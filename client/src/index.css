@@ -374,8 +374,8 @@ input, textarea, select { font-family: inherit; }
    ============================================================ */
 
 .reveal {
-  opacity: 0;
-  transform: translateY(32px);
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity 0.65s var(--ease-base), transform 0.65s var(--ease-base);
 }
 .reveal.visible {
@@ -383,14 +383,14 @@ input, textarea, select { font-family: inherit; }
   transform: translateY(0);
 }
 .reveal-left {
-  opacity: 0;
-  transform: translateX(-32px);
+  opacity: 1;
+  transform: translateX(0);
   transition: opacity 0.65s var(--ease-base), transform 0.65s var(--ease-base);
 }
 .reveal-left.visible { opacity: 1; transform: translateX(0); }
 .reveal-right {
-  opacity: 0;
-  transform: translateX(32px);
+  opacity: 1;
+  transform: translateX(0);
   transition: opacity 0.65s var(--ease-base), transform 0.65s var(--ease-base);
 }
 .reveal-right.visible { opacity: 1; transform: translateX(0); }
@@ -542,10 +542,16 @@ input, textarea, select { font-family: inherit; }
 @media (max-width: 768px) {
   :root { --section-py: 4rem; --container-px: 1.25rem; }
   html { scroll-padding-top: 5.25rem; }
-  .section-heading { font-size: 2.2rem; }
+  .section-heading {
+    font-size: 2.2rem;
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
   .section-sub {
     font-size: 0.98rem;
     line-height: 1.6;
+    width: min(100%, 34ch);
+    max-width: 100%;
   }
   .eyebrow {
     font-size: 0.76rem;
@@ -566,9 +572,11 @@ input, textarea, select { font-family: inherit; }
   :root { --section-py: 3.5rem; --container-px: 1rem; }
   html { scroll-padding-top: 4.75rem; }
   .section-heading {
-    font-size: 2rem;
+    font-size: 1.88rem;
     line-height: 1.04;
+    letter-spacing: 0.035em;
   }
+  .section-sub { width: min(100%, 31ch); }
 }
 
 @media (prefers-reduced-motion: reduce) {

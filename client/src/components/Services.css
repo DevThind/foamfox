@@ -13,9 +13,10 @@
 .services__vehicle-tabs {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   gap: 0.9rem;
   margin-bottom: 3rem;
+  max-width: 100%;
 }
 
 .services__vehicle-label {
@@ -25,6 +26,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-400);
+  text-align: center;
 }
 
 .services__vehicle-pills {
@@ -32,6 +34,8 @@
   flex-wrap: wrap;
   gap: 0.6rem;
   justify-content: center;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .services__pill {
@@ -47,6 +51,8 @@
   background: transparent;
   transition: all var(--ease-base);
   cursor: pointer;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .services__pill:hover {
   border-color: var(--border-medium);
@@ -66,6 +72,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   align-items: start;
+  min-width: 0;
 }
 
 /* === Individual Card === */
@@ -81,6 +88,7 @@
   transition: all var(--ease-base);
   position: relative;
   overflow: hidden;
+  min-width: 0;
 }
 
 .services__card::before {
@@ -139,13 +147,26 @@
 
 /* === Card top === */
 .services__card-top {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 0.75rem;
 }
 
 .services__icon {
-  font-size: 2rem;
+  width: 44px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: rgba(0,148,255,0.1);
+  border: 1px solid var(--border-subtle);
+  color: var(--blue-200);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
   line-height: 1;
 }
 
@@ -270,6 +291,11 @@
 }
 
 @media (max-width: 640px) {
+  .services__header .section-heading {
+    max-width: 12ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .services__header {
     margin-bottom: 2rem;
   }
@@ -278,15 +304,17 @@
   }
   .services__vehicle-pills {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
     gap: 0.55rem;
   }
   .services__pill {
     width: 100%;
     padding: 0.55rem 0.45rem;
-    font-size: 0.76rem;
-    letter-spacing: 0.05em;
+    font-size: 0.7rem;
+    letter-spacing: 0.035em;
   }
   .services__grid { grid-template-columns: 1fr; }
   .services__card {
@@ -294,12 +322,20 @@
     padding: 1.25rem 1rem;
     gap: 0.85rem;
   }
+  .services__card-top {
+    gap: 0.65rem;
+  }
+  .services__icon {
+    width: 40px;
+    height: 32px;
+    font-size: 0.68rem;
+  }
   .services__name {
     font-size: 1.38rem;
   }
   .services__price-row {
-    align-items: center;
-    flex-direction: row;
+    align-items: flex-start;
+    flex-direction: column;
     gap: 0.65rem;
     padding: 0.9rem 0;
   }

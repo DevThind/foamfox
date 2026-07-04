@@ -13,6 +13,7 @@
   border-bottom: 1px solid var(--border-subtle);
   position: relative;
   overflow: hidden;
+  padding-bottom: calc(1.25rem + env(safe-area-inset-bottom));
 }
 
 .footer__banner::before {
@@ -259,6 +260,9 @@ a.footer__contact-item:hover { color: var(--blue-300); }
   .footer__banner-title {
     font-size: 1.8rem;
     line-height: 1.05;
+    max-width: 11ch;
+    margin-left: auto;
+    margin-right: auto;
   }
   .footer__banner-sub {
     font-size: 0.92rem;
