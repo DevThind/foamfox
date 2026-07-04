@@ -173,6 +173,7 @@
   padding: 5.5rem 2rem 2rem;
   display: flex;
   flex-direction: column;
+  overscroll-behavior: contain;
 }
 .navbar__drawer--open {
   transform: translateX(0);
@@ -224,6 +225,11 @@
   background: rgba(0,148,255,0.06);
 }
 
+/* === Mobile quick actions === */
+.navbar__mobile-actions {
+  display: none;
+}
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */
@@ -258,11 +264,11 @@
     height: 54px;
   }
   .navbar__drawer {
-    top: 78px;
+    top: 70px;
     left: 0;
     right: 0;
     width: 100vw;
-    height: calc(100svh - 78px);
+    height: calc(100svh - 70px);
     padding: 1.25rem 1.25rem 1.5rem;
     background:
       linear-gradient(180deg, rgba(4, 5, 12, 0.98), rgba(7, 11, 24, 0.98)),
@@ -282,6 +288,47 @@
   .navbar__drawer-phone {
     padding: 0.78rem 0.85rem;
   }
+  .navbar__mobile-actions {
+    position: fixed;
+    left: 0.85rem;
+    right: 0.85rem;
+    bottom: calc(0.75rem + env(safe-area-inset-bottom));
+    z-index: 1001;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+    padding: 0.5rem;
+    border: 1px solid rgba(196,212,232,0.14);
+    border-radius: var(--radius-md);
+    background: rgba(4, 5, 12, 0.92);
+    box-shadow: 0 16px 44px rgba(0,0,0,0.58);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .navbar--menu-open .navbar__mobile-actions {
+    display: none;
+  }
+  .navbar__mobile-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 46px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-subtle);
+    color: var(--silver-200);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.94rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .navbar__mobile-action--primary {
+    color: #fff;
+    border-color: transparent;
+    background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+    box-shadow: var(--glow-xs);
+  }
 }
 
 @media (max-width: 420px) {
@@ -290,7 +337,7 @@
     height: 48px;
   }
   .navbar__drawer {
-    top: 68px;
-    height: calc(100svh - 68px);
+    top: 64px;
+    height: calc(100svh - 64px);
   }
 }

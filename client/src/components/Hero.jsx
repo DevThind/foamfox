@@ -73,7 +73,10 @@ export default function Hero() {
           <h1 className="hero__title font-display">
             <span className="text-chrome">DETAILING</span>
             <br />
-            <span className="text-chrome">THAT SHOWS</span>
+            <span className="text-chrome">
+              THAT<span className="hero__desktop-space"> </span>
+              <br className="hero__mobile-break" />SHOWS
+            </span>
           </h1>
 
           <p className="hero__script font-script">Auto Detailing</p>

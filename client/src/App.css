@@ -12,3 +12,21 @@ main {
 .app main > #contact > .section:first-child {
   padding-top: calc(var(--section-py) + 6rem);
 }
+
+@media (max-width: 768px) {
+  .app {
+    padding-bottom: calc(4.25rem + env(safe-area-inset-bottom));
+  }
+
+  .app main > .section:first-child,
+  .app main > #contact > .section:first-child {
+    padding-top: calc(var(--section-py) + 4.5rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .app main > .section:first-child,
+  .app main > #contact > .section:first-child {
+    padding-top: calc(var(--section-py) + 3.75rem);
+  }
+}
