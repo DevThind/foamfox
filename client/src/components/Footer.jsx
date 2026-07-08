@@ -3,10 +3,10 @@ import './Footer.css'
 
 const LINKS = {
   Services: [
-    { label: 'Exterior Detail', href: '#services' },
-    { label: 'Interior Detail', href: '#services' },
-    { label: 'Full Detail',     href: '#services' },
-    { label: 'Premium Package', href: '#services' },
+    { label: 'Basic Interior', href: '#services' },
+    { label: 'Full Interior', href: '#services' },
+    { label: 'Basic Interior + Exterior', href: '#services' },
+    { label: 'Full Interior + Exterior', href: '#services' },
   ],
   Company: [
     { label: 'Why Foam Fox',  href: '#why-us' },

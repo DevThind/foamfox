@@ -39,6 +39,8 @@
 }
 
 .services__pill {
+  display: grid;
+  gap: 0.1rem;
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
   font-size: 0.85rem;
@@ -53,6 +55,17 @@
   cursor: pointer;
   min-width: 0;
   overflow-wrap: anywhere;
+}
+
+.services__pill small {
+  color: var(--text-400);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.services__pill--active small {
+  color: var(--blue-100);
 }
 .services__pill:hover {
   border-color: var(--border-medium);
@@ -240,6 +253,7 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   color: var(--text-400);
+  text-align: right;
 }
 
 /* === Features list === */
@@ -280,6 +294,80 @@
   font-style: italic;
 }
 
+/* === Add-ons === */
+.services__addons {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 1.5rem;
+  align-items: start;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(135deg, rgba(0,148,255,0.08), rgba(255,255,255,0.02)),
+    rgba(7,11,24,0.72);
+}
+
+.services__addons-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue-300);
+  margin-bottom: 0.35rem;
+}
+
+.services__addons-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.25;
+  color: var(--text-100);
+}
+
+.services__addons-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.services__addon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border-faint);
+  border-radius: var(--radius-sm);
+  background: rgba(4,7,14,0.45);
+}
+
+.services__addon div {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.services__addon strong {
+  color: var(--text-100);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.98rem;
+  letter-spacing: 0.04em;
+}
+
+.services__addon span {
+  color: var(--text-400);
+  font-size: 0.82rem;
+}
+
+.services__addon p {
+  flex-shrink: 0;
+  color: var(--blue-200);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-align: right;
+}
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */
@@ -292,7 +380,7 @@
 
 @media (max-width: 640px) {
   .services__header .section-heading {
-    max-width: 12ch;
+    max-width: 13ch;
     margin-left: auto;
     margin-right: auto;
   }
@@ -306,7 +394,7 @@
     display: grid;
     grid-template-columns: 1fr;
     width: 100%;
-    max-width: 280px;
+    max-width: 320px;
     margin: 0 auto;
     gap: 0.55rem;
   }
@@ -315,6 +403,9 @@
     padding: 0.55rem 0.45rem;
     font-size: 0.7rem;
     letter-spacing: 0.035em;
+  }
+  .services__pill small {
+    font-size: 0.64rem;
   }
   .services__grid { grid-template-columns: 1fr; }
   .services__card {
@@ -344,6 +435,28 @@
   }
   .services__feature {
     font-size: 0.86rem;
+  }
+  .services__duration {
+    text-align: left;
+    line-height: 1.25;
+  }
+  .services__addons {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.15rem 1rem;
+  }
+  .services__addon {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+  .services__addon p {
+    text-align: left;
+  }
+  .services__disclaimer {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
   }
   .services__popular-badge {
     right: 0.9rem;

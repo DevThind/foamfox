@@ -2,96 +2,102 @@ import { useState } from 'react'
 import { WHATSAPP_BOOKING_URL } from '../utils/contact'
 import './Services.css'
 
-const VEHICLE_TYPES = ['Sedan', 'SUV (5-Seat)', 'SUV (7-Seat)', 'Minivan', 'Truck']
-
-const PRICE_MULT = {
-  Sedan: 1,
-  'SUV (5-Seat)': 1.15,
-  'SUV (7-Seat)': 1.25,
-  Minivan: 1.3,
-  Truck: 1.35,
-}
-
-const SERVICES = [
+const VEHICLE_GROUPS = [
   {
-    id: 'exterior',
-    icon: 'EXT',
-    name: 'Exterior Detail',
-    tagline: 'Clean paint, clear glass, dressed tires.',
-    basePrice: 119,
-    duration: '1 - 1.5 hrs',
+    id: 'five',
+    label: '5-Seater Sedan/SUV',
+    note: 'No pet hair',
+  },
+  {
+    id: 'large',
+    label: '7-Seater / Van / Pickup',
+    note: 'No pet hair',
+  },
+]
+
+const PACKAGES = [
+  {
+    id: 'basic-interior',
+    icon: 'BI',
+    name: 'Basic Interior',
+    tagline: 'A clean interior reset for regular upkeep.',
+    prices: { five: 90, large: 120 },
     color: 'blue',
     features: [
-      'Hand wash and hand dry',
-      'Wheel, rim, and brake dust removal',
-      'Bug and tar removal from paint',
-      'Exterior trim and door jamb cleaning',
-      'Streak-free glass on all windows',
-      'Tire dressing and sheen coat',
+      'Complete interior vacuum',
+      'Dashboard, center console, and door panels wiped down',
+      'Cup holders cleaned',
+      'Interior windows cleaned',
+      'Floor mats vacuumed and cleaned',
+      'Light dust and debris removal',
+      'Air freshener',
     ],
   },
   {
-    id: 'interior',
-    icon: 'INT',
-    name: 'Interior Detail',
-    tagline: 'A reset for seats, carpets, vents, and trim.',
-    basePrice: 149,
-    duration: '1.5 - 2 hrs',
+    id: 'full-interior',
+    icon: 'FI',
+    name: 'Full Interior',
+    tagline: 'Deeper cleaning for carpets, seats, mats, and trim.',
+    prices: { five: 120, large: 150 },
     color: 'blue',
     features: [
-      'Full vacuum for seats, carpets, and trunk',
-      'Salt and stain extraction',
-      'Interior shampoo and carpet steam',
-      'Upholstery and leather cleaning',
-      'Dashboard, vents, and console detail',
-      'Streak-free interior windows',
+      'Everything in Basic Interior',
+      'Deep cleaning of carpets, seats, and floor mats',
+      'Steam cleaning where applicable',
+      'Stain treatment with 80-90% removal where possible',
+      'Vents, cup holders, and hard-to-reach areas detailed',
+      'Door jambs cleaned',
+      'UV protectant applied to interior surfaces',
+      'Interior deodorized',
     ],
   },
   {
-    id: 'full',
-    icon: 'FULL',
-    name: 'Full Detail',
-    tagline: 'The complete Foam Fox interior and exterior package.',
-    basePrice: 229,
-    duration: '2.5 - 3 hrs',
+    id: 'basic-combo',
+    icon: 'B+E',
+    name: 'Basic Interior + Exterior',
+    tagline: 'Interior refresh with a clean hand-washed exterior.',
+    prices: { five: 130, large: 160 },
     popular: true,
     color: 'gold',
     features: [
-      'Everything in Interior and Exterior',
-      'Premium paint sealant application',
-      'Paint decontamination treatment',
-      'High-gloss protective finish',
-      'Complimentary leather conditioning',
-      'Full steam sanitation treatment',
-      'Interior and exterior finishing touches',
+      'Everything in Basic Interior',
+      'Hand wash',
+      'Wheel and tire cleaning',
+      'Tire shine',
+      'Exterior windows cleaned',
+      'Door jambs cleaned',
+      'Hand towel dry',
     ],
   },
   {
-    id: 'premium',
-    icon: 'PRO',
-    name: 'Premium Package',
-    tagline: 'Showroom finish with deeper correction and protection.',
-    basePrice: 399,
-    duration: '4 - 5 hrs',
+    id: 'full-combo',
+    icon: 'F+E',
+    name: 'Full Interior + Exterior',
+    tagline: 'Full interior detail plus exterior shine and protection.',
+    prices: { five: 160, large: 190 },
     color: 'silver',
     features: [
-      'Everything in Full Detail',
-      'Single-stage paint correction',
-      'Ceramic coating protection layer',
-      'Engine bay deep clean',
-      'Pet hair and odour elimination',
-      'Bi-weekly maintenance option',
-      'Priority scheduling guaranteed',
+      'Everything in Full Interior',
+      'Premium hand wash',
+      'Wheel, tire, and wheel well cleaning',
+      'Tire shine',
+      'Exterior windows cleaned',
+      'Door jambs cleaned',
+      'Spray wax for added shine and paint protection',
+      'Final exterior wipe-down',
     ],
   },
 ]
 
-function formatPrice(base, vehicle) {
-  return Math.round(base * PRICE_MULT[vehicle])
-}
+const ADD_ONS = [
+  { name: 'Pet Hair Removal', price: '$20-$50', note: 'Depends on amount of pet hair' },
+  { name: 'Heavy Stain Removal', price: 'Starting at $20', note: 'Quoted by condition' },
+  { name: 'Excessive Dirt/Sand Cleanup', price: 'Quoted upon inspection', note: 'For heavy soil, sand, or debris' },
+]
 
 export default function Services() {
-  const [vehicle, setVehicle] = useState('Sedan')
+  const [vehicleGroup, setVehicleGroup] = useState('five')
+  const activeGroup = VEHICLE_GROUPS.find((group) => group.id === vehicleGroup)
 
   return (
     <section className="services section section-dark" id="services">
@@ -99,70 +105,67 @@ export default function Services() {
         <div className="services__header reveal">
           <p className="eyebrow">Our Services</p>
           <h2 className="section-heading">
-            Packages Built for <span className="text-blue">Every Need</span>
+            Interior and Exterior <span className="text-blue">Packages</span>
           </h2>
           <p className="section-sub">
-            From a quick exterior refresh to a full ceramic-coated showroom finish,
-            choose the package that fits your vehicle and goals.
+            Choose your vehicle group to see exact package pricing. Listed rates are for vehicles
+            without pet hair or excessive soil.
           </p>
         </div>
 
         <div className="services__vehicle-tabs reveal delay-1">
-          <p className="services__vehicle-label">Select your vehicle</p>
+          <p className="services__vehicle-label">Select your vehicle group</p>
           <div className="services__vehicle-pills">
-            {VEHICLE_TYPES.map((v) => (
+            {VEHICLE_GROUPS.map((group) => (
               <button
-                key={v}
-                className={`services__pill ${vehicle === v ? 'services__pill--active' : ''}`}
-                onClick={() => setVehicle(v)}
+                key={group.id}
+                className={`services__pill ${vehicleGroup === group.id ? 'services__pill--active' : ''}`}
+                onClick={() => setVehicleGroup(group.id)}
               >
-                {v}
+                <span>{group.label}</span>
+                <small>{group.note}</small>
               </button>
             ))}
           </div>
         </div>
 
         <div className="services__grid">
-          {SERVICES.map((svc, i) => (
+          {PACKAGES.map((pkg, i) => (
             <div
-              key={svc.id}
-              className={`services__card reveal delay-${i + 1} ${svc.popular ? 'services__card--popular' : ''} services__card--${svc.color}`}
+              key={pkg.id}
+              className={`services__card reveal delay-${i + 1} ${pkg.popular ? 'services__card--popular' : ''} services__card--${pkg.color}`}
             >
-              {svc.popular && (
-                <div className="services__popular-badge">Most Popular</div>
+              {pkg.popular && (
+                <div className="services__popular-badge">Popular</div>
               )}
 
               <div className="services__card-top">
-                <span className="services__icon" aria-hidden="true">{svc.icon}</span>
+                <span className="services__icon" aria-hidden="true">{pkg.icon}</span>
                 <div>
-                  <h3 className="services__name font-display">{svc.name}</h3>
-                  <p className="services__tagline">{svc.tagline}</p>
+                  <h3 className="services__name font-display">{pkg.name}</h3>
+                  <p className="services__tagline">{pkg.tagline}</p>
                 </div>
               </div>
 
               <div className="services__price-row">
                 <div className="services__price">
-                  <span className="services__price-from">from</span>
+                  <span className="services__price-from">for</span>
                   <span className="services__price-amount font-display">
-                    ${formatPrice(svc.basePrice, vehicle)}
+                    ${pkg.prices[vehicleGroup]}
                   </span>
-                  <span className="services__price-unit">+ tax</span>
                 </div>
                 <div className="services__duration">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                    <circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" />
-                  </svg>
-                  {svc.duration}
+                  {activeGroup.label}
                 </div>
               </div>
 
               <ul className="services__features">
-                {svc.features.map((f) => (
-                  <li key={f} className="services__feature">
+                {pkg.features.map((feature) => (
+                  <li key={feature} className="services__feature">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
-                    {f}
+                    {feature}
                   </li>
                 ))}
               </ul>
@@ -171,7 +174,7 @@ export default function Services() {
                 href={WHATSAPP_BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`btn ${svc.popular ? 'btn-primary' : 'btn-outline'} services__btn`}
+                className={`btn ${pkg.popular ? 'btn-primary' : 'btn-outline'} services__btn`}
               >
                 Book This Package
               </a>
@@ -179,9 +182,27 @@ export default function Services() {
           ))}
         </div>
 
+        <div className="services__addons reveal delay-4">
+          <div>
+            <p className="services__addons-label">Add-ons</p>
+            <h3 className="services__addons-title">Extra cleanup when your vehicle needs more</h3>
+          </div>
+          <div className="services__addons-list">
+            {ADD_ONS.map((addon) => (
+              <div key={addon.name} className="services__addon">
+                <div>
+                  <strong>{addon.name}</strong>
+                  <span>{addon.note}</span>
+                </div>
+                <p>{addon.price}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <p className="services__disclaimer">
-          * Prices listed are starting rates for a {vehicle}. Final price may vary based on vehicle condition.
-          Contact us for a free quote.
+          Prices listed are for {activeGroup.label} vehicles with no pet hair. Final pricing may change
+          for excessive dirt, sand, stains, or pet hair after inspection.
         </p>
       </div>
     </section>

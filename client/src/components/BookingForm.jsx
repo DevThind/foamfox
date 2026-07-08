@@ -4,20 +4,21 @@ import toast from 'react-hot-toast'
 import './BookingForm.css'
 
 const SERVICES_LIST = [
-  'Exterior Detail',
-  'Interior Detail',
-  'Full Detail',
-  'Premium Package',
-  'Not Sure — Need Advice',
+  'Basic Interior',
+  'Full Interior',
+  'Basic Interior + Exterior',
+  'Full Interior + Exterior',
+  'Pet Hair Removal Add-On',
+  'Heavy Stain Removal Add-On',
+  'Not Sure - Need Advice',
 ]
 
 const VEHICLE_TYPES = [
-  'Sedan',
-  'SUV (5-Seater)',
-  'SUV (7-Seater)',
-  'Minivan',
+  '5-Seater Sedan',
+  '5-Seater SUV',
+  '7-Seater SUV',
+  'Van',
   'Pickup Truck',
-  'Van / Sprinter',
 ]
 
 const TIME_SLOTS = [
@@ -333,3 +334,4 @@ export default function BookingForm() {
     </section>
   )
 }
+
