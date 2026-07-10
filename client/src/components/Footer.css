@@ -227,7 +227,24 @@ a.footer__contact-item:hover { color: var(--blue-300); }
 
 @media (max-width: 768px) {
   .footer__grid { grid-template-columns: 1fr 1fr; }
-  .footer__brand { flex-direction: column; }
+  .footer__brand {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.85rem;
+  }
+  .footer__logo {
+    margin: 0 auto;
+  }
+  .footer__logo-img {
+    width: min(158px, 54vw);
+  }
+  .footer__desc {
+    max-width: 34ch;
+  }
+  .footer__social {
+    justify-content: center;
+  }
   .footer__banner-inner {
     flex-direction: column;
     text-align: center;
@@ -248,6 +265,9 @@ a.footer__contact-item:hover { color: var(--blue-300); }
   }
   .footer__grid {
     gap: 2rem;
+  }
+  .footer__logo-img {
+    width: min(136px, 46vw);
   }
   .footer__banner-title {
     font-size: 1.35rem;
