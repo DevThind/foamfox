@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { WHATSAPP_BOOKING_URL } from '../utils/contact'
+import { createWhatsAppUrl } from '../utils/contact'
 import './Services.css'
 
 const VEHICLE_GROUPS = [
@@ -95,6 +95,27 @@ const ADD_ONS = [
   { name: 'Excessive Dirt/Sand Cleanup', price: 'Quoted upon inspection', note: 'For heavy soil, sand, or debris' },
 ]
 
+function createPackageMessage(pkg, vehicleGroup) {
+  const inclusions = pkg.features.map((feature) => `- ${feature}`).join('\n')
+  const addOns = ADD_ONS.map((addon) => `- ${addon.name}: ${addon.price}`).join('\n')
+
+  return [
+    'Hi Foam Fox, I would like to book this detailing package:',
+    '',
+    `Package: ${pkg.name}`,
+    `Vehicle group: ${vehicleGroup.label} (${vehicleGroup.note})`,
+    `Price: $${pkg.prices[vehicleGroup.id]}`,
+    '',
+    'Includes:',
+    inclusions,
+    '',
+    'Available add-ons:',
+    addOns,
+    '',
+    'Please confirm availability and final pricing for my vehicle.',
+  ].join('\n')
+}
+
 export default function Services() {
   const [vehicleGroup, setVehicleGroup] = useState('five')
   const activeGroup = VEHICLE_GROUPS.find((group) => group.id === vehicleGroup)
@@ -171,7 +192,7 @@ export default function Services() {
               </ul>
 
               <a
-                href={WHATSAPP_BOOKING_URL}
+                href={createWhatsAppUrl(createPackageMessage(pkg, activeGroup))}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`btn ${pkg.popular ? 'btn-primary' : 'btn-outline'} services__btn`}

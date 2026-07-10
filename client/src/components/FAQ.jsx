@@ -21,7 +21,7 @@ const FAQS = [
   },
   {
     q: 'What forms of payment do you accept?',
-    a: "We accept cash, e-Transfer (Interac), Visa, and Mastercard. Payment is due upon completion of the service. We'll send you a digital receipt after every appointment.",
+    a: 'We accept cash and Interac e-Transfer only. Payment is due upon completion of the service.',
   },
   {
     q: 'Do you work in bad weather or winter conditions?',
