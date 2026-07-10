@@ -38,7 +38,7 @@
 
 .navbar__logo-img {
   display: block;
-  width: 82px;
+  width: clamp(118px, 11vw, 158px);
   height: 82px;
   object-fit: contain;
   object-position: center;
@@ -264,8 +264,8 @@
   .navbar__hamburger { display: flex; }
   .navbar__cta { display: none; }
   .navbar__logo-img {
-    width: 54px;
-    height: 54px;
+    width: 96px;
+    height: 56px;
   }
   .navbar__drawer {
     top: 70px;
@@ -340,8 +340,8 @@
 
 @media (max-width: 420px) {
   .navbar__logo-img {
-    width: 48px;
-    height: 48px;
+    width: 84px;
+    height: 50px;
   }
   .navbar__drawer {
     top: 64px;

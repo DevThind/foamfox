@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import logo from '../assets/foamfox-logo-nav.jpeg'
+import logo from '../assets/foamfox-logo.png'
 import { WHATSAPP_BOOKING_URL } from '../utils/contact'
 import './Navbar.css'
 

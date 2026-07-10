@@ -1,4 +1,5 @@
 import { WHATSAPP_BOOKING_URL } from '../utils/contact'
+import logo from '../assets/foamfox-logo.png'
 import './Footer.css'
 
 const LINKS = {
@@ -70,15 +71,7 @@ export default function Footer() {
             {/* Brand column */}
             <div className="footer__brand">
               <div className="footer__logo">
-                <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
-                  <path d="M18 2L32 10V26L18 34L4 26V10L18 2Z" stroke="#0094ff" strokeWidth="1.5" fill="rgba(0,148,255,0.08)"/>
-                  <path d="M18 8L26 12.5V21.5L18 26L10 21.5V12.5L18 8Z" fill="rgba(0,148,255,0.15)"/>
-                  <circle cx="18" cy="17" r="4" fill="#0094ff" opacity="0.9"/>
-                </svg>
-                <div>
-                  <p className="footer__logo-name font-display">FOAM FOX</p>
-                  <p className="footer__logo-sub font-script">Auto Detailing</p>
-                </div>
+                <img className="footer__logo-img" src={logo} alt="Foam Fox Auto Detailing" />
               </div>
               <p className="footer__tagline">
                 Premium Care. Immaculate Results.

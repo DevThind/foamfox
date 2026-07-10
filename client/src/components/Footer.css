@@ -81,27 +81,14 @@
 .footer__logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
   filter: drop-shadow(0 0 8px rgba(0,148,255,0.3));
 }
 
-.footer__logo-name {
-  font-size: 1.3rem;
-  letter-spacing: 0.12em;
-  background: linear-gradient(135deg, #8ab0cc, #ddf0ff, #c0d8ee);
-  background-size: 250% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 5s linear infinite;
-}
-
-.footer__logo-sub {
-  font-family: 'Dancing Script', cursive;
-  font-size: 0.72rem;
-  color: var(--blue-300);
-  letter-spacing: 0.06em;
-  -webkit-text-fill-color: var(--blue-300);
+.footer__logo-img {
+  display: block;
+  width: min(220px, 100%);
+  height: auto;
+  object-fit: contain;
 }
 
 .footer__tagline {
