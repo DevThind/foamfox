@@ -583,6 +583,13 @@ input, textarea, select { font-family: inherit; }
 @media (max-width: 768px) {
   :root { --section-py: 4rem; --container-px: 1.25rem; }
   html { scroll-padding-top: 5.25rem; }
+  body {
+    background:
+      linear-gradient(180deg, var(--bg-950), var(--bg-800) 60%, var(--bg-900));
+  }
+  .section::before {
+    display: none;
+  }
   .section-heading {
     font-size: 1.85rem;
     max-width: 100%;

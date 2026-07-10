@@ -25,7 +25,7 @@ main {
   flex: 1;
 }
 
-.app main > .section:first-child {
+.app main > .section:first-child:not(.hero) {
   padding-top: calc(var(--section-py) + 5.2rem);
 }
 
@@ -34,13 +34,13 @@ main {
     padding-bottom: calc(4.25rem + env(safe-area-inset-bottom));
   }
 
-  .app main > .section:first-child {
-    padding-top: calc(var(--section-py) + 3.75rem);
+  .app main > .section:first-child:not(.hero) {
+    padding-top: 5.4rem;
   }
 }
 
 @media (max-width: 480px) {
-  .app main > .section:first-child {
-    padding-top: calc(var(--section-py) + 3rem);
+  .app main > .section:first-child:not(.hero) {
+    padding-top: 4.8rem;
   }
 }

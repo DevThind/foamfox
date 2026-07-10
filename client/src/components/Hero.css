@@ -540,19 +540,19 @@
 
 @media (max-width: 600px) {
   .hero {
-    padding-top: 5.1rem;
+    padding-top: 4.65rem;
   }
   .hero__content {
-    gap: 1.35rem;
-    padding-bottom: 1rem;
-    width: calc(100svw - 2rem);
-    max-width: calc(100svw - 2rem);
+    gap: 1.1rem;
+    padding-bottom: 0.6rem;
+    width: 100%;
+    max-width: 100%;
     padding-left: 0;
     padding-right: 0;
     min-width: 0;
   }
   .hero__text {
-    gap: 0.55rem;
+    gap: 0.48rem;
     width: 100%;
     max-width: 100%;
     min-width: 0;
@@ -560,7 +560,7 @@
   .hero__eyebrow {
     justify-content: center;
     gap: 0.45rem;
-    margin-bottom: 0.15rem;
+    margin-bottom: 0;
     font-size: 0.62rem;
     letter-spacing: 0.1em;
   }
@@ -577,7 +577,7 @@
     display: none;
   }
   .hero__script {
-    font-size: 0.95rem;
+    display: none;
   }
   .hero__tagline {
     font-size: 0.9rem;
@@ -590,41 +590,33 @@
     max-width: 31ch;
   }
   .hero__proof-row {
-    grid-template-columns: 1fr;
-    max-width: 280px;
-    gap: 0.42rem;
-  }
-  .hero__proof-pill {
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    gap: 0.55rem;
-    padding: 0.58rem 0.72rem;
-    text-align: left;
+    display: none;
   }
   .hero__trust {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.42rem;
     width: 100%;
-    max-width: 280px;
+    max-width: 320px;
   }
   .hero__trust-item {
     justify-content: center;
-    padding: 0.42rem 0.46rem;
-    font-size: 0.62rem;
-    letter-spacing: 0.02em;
+    padding: 0.38rem 0.46rem;
+    font-size: 0.56rem;
+    letter-spacing: 0;
+    flex: 1 1 0;
+    min-width: 0;
   }
-  .hero__trust-item:nth-child(3) {
-    grid-column: 1 / -1;
-    justify-self: center;
-    min-width: 148px;
+  .hero__trust-item svg {
+    width: 12px;
+    height: 12px;
   }
   .hero__ctas {
     flex-direction: column;
     align-items: center;
     gap: 0.7rem;
     width: min(100%, 280px);
-    margin-top: 0.65rem;
+    margin-top: 0.45rem;
   }
   .hero__cta-main,
   .hero__cta-call {
@@ -638,10 +630,10 @@
     display: none;
   }
   .hero__visual {
-    width: min(100%, 420px);
+    width: min(100%, 360px);
   }
   .hero__photo-showcase {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 10;
     box-shadow: 0 16px 42px rgba(0,0,0,0.42);
   }
   .hero__car-photo {
@@ -652,34 +644,28 @@
     left: 0.65rem;
     right: 0.65rem;
     bottom: 0.65rem;
-    display: grid;
-    gap: 0.28rem;
-    padding: 0.62rem 0.7rem;
-  }
-  .hero__visual-label span {
-    font-size: 0.62rem;
-    letter-spacing: 0.1em;
-  }
-  .hero__visual-label strong {
-    font-size: 0.82rem;
+    display: none;
   }
   .hero__finish-panel {
     display: none;
   }
   .hero__stats {
-    margin-top: 0.8rem;
-    padding: 1rem 0;
+    margin-top: 0.5rem;
+    padding: 0.8rem 0;
   }
   .hero__stats-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 0;
   }
   .hero__stat {
-    padding: 0.65rem 0.35rem;
+    padding: 0.52rem 0.3rem;
   }
   .hero__stat:nth-child(3) { border-left: none; }
+  .hero__stat:nth-child(n + 3) {
+    border-top: 1px solid var(--border-faint);
+  }
   .hero__stat-value {
-    font-size: 1.35rem;
+    font-size: 1.12rem;
   }
   .hero__stat-label {
     font-size: 0.58rem;
