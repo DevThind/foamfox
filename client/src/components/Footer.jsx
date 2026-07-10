@@ -78,7 +78,7 @@ export default function Footer() {
               </p>
               <p className="footer__desc">
                 Professional mobile auto detailing serving the Greater Toronto Area.
-                We come to you — fully equipped, always on time.
+                We come to you - fully equipped, always on time.
               </p>
 
               {/* Social links */}
@@ -138,7 +138,7 @@ export default function Footer() {
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                     <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
                   </svg>
-                  Mon – Sun · 8 AM – 7 PM
+                  Mon - Sun | 8 AM - 7 PM
                 </div>
                 <div className="footer__contact-item footer__contact-item--muted">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -156,10 +156,10 @@ export default function Footer() {
       <div className="footer__bottom">
         <div className="container footer__bottom-inner">
           <p className="footer__copyright">
-            © {year} Foam Fox Auto Detailing. All rights reserved.
+            &copy; {year} Foam Fox Auto Detailing. All rights reserved.
           </p>
           <p className="footer__credit">
-            Designed & built with ❤️ for Foam Fox
+            Designed and built for Foam Fox
           </p>
           <div className="footer__bottom-links">
             <a href="#home" onClick={(e) => scrollTo(e, '#home')}>Privacy</a>

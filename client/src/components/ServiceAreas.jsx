@@ -23,28 +23,44 @@ export default function ServiceAreas() {
               <span className="text-blue">Your Door</span>
             </h2>
             <p className="section-sub">
-              Fully mobile and equipped — we travel across the Greater Toronto Area
+              Fully mobile and equipped - we travel across the Greater Toronto Area
               so your vehicle gets detailed wherever you are. Home, office, or anywhere
               in between.
             </p>
 
             <div className="areas__highlights">
               <div className="areas__highlight">
-                <div className="areas__highlight-icon">📍</div>
+                <div className="areas__highlight-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1118 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
                 <div>
                   <p className="areas__highlight-title">Serving 24+ Cities</p>
                   <p className="areas__highlight-desc">Across the Greater Toronto Area and beyond</p>
                 </div>
               </div>
               <div className="areas__highlight">
-                <div className="areas__highlight-icon">🚚</div>
+                <div className="areas__highlight-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M1 3h15v13H1z" />
+                    <path d="M16 8h4l3 3v5h-7V8z" />
+                    <circle cx="5.5" cy="18.5" r="2.5" />
+                    <circle cx="18.5" cy="18.5" r="2.5" />
+                  </svg>
+                </div>
                 <div>
                   <p className="areas__highlight-title">We Bring Everything</p>
-                  <p className="areas__highlight-desc">Water, power, professional equipment — all included</p>
+                  <p className="areas__highlight-desc">Water, power, professional equipment - all included</p>
                 </div>
               </div>
               <div className="areas__highlight">
-                <div className="areas__highlight-icon">📞</div>
+                <div className="areas__highlight-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.07 10 19.79 19.79 0 011 1.4 2 2 0 013 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91A16 16 0 0013.09 14l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                  </svg>
+                </div>
                 <div>
                   <p className="areas__highlight-title">Not Sure? Just Call</p>
                   <p className="areas__highlight-desc">

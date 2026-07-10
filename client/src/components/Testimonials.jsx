@@ -8,7 +8,7 @@ const REVIEWS = [
     city: 'Brampton, ON',
     rating: 5,
     service: 'Full Interior + Exterior',
-    text: "Foam Fox is hands down the best detailing service I've used. My Audi looked showroom-new after the full detail. The bubbles and foam cannon were impressive to watch — totally professional. Will be booking monthly!",
+    text: "Foam Fox is hands down the best detailing service I've used. My Audi looked showroom-new after the full detail. The bubbles and foam cannon were impressive to watch - totally professional. Will be booking monthly!",
     initial: 'H',
     color: '#0094ff',
   },
@@ -18,7 +18,7 @@ const REVIEWS = [
     city: 'Mississauga, ON',
     rating: 5,
     service: 'Full Interior',
-    text: "I have two kids and a dog — my SUV interior was a disaster. After Foam Fox worked their magic, the seats looked brand new and the car smelled fresh. Booked same-day and they were on time. Highly recommend!",
+    text: "I have two kids and a dog, so my SUV interior was a disaster. After Foam Fox worked their magic, the seats looked brand new and the car smelled fresh. Booked same-day and they were on time. Highly recommend!",
     initial: 'P',
     color: '#9b59b6',
   },
@@ -38,7 +38,7 @@ const REVIEWS = [
     city: 'Vaughan, ON',
     rating: 5,
     service: 'Full Interior + Exterior',
-    text: "I was skeptical about mobile detailing but Foam Fox completely changed my mind. The ceramic coating they applied is phenomenal — water beads right off. My Tesla has never looked this good. Truly premium service.",
+    text: "I was skeptical about mobile detailing but Foam Fox completely changed my mind. The coating they applied is phenomenal - water beads right off. My Tesla has never looked this good. Truly premium service.",
     initial: 'S',
     color: '#e67e22',
   },
@@ -52,6 +52,12 @@ const REVIEWS = [
     initial: 'R',
     color: '#c0392b',
   },
+]
+
+const TRUST_SUMMARY = [
+  { value: '5.0', label: 'Average rating' },
+  { value: '200+', label: 'Local vehicles' },
+  { value: '1 hr', label: 'Confirmation target' },
 ]
 
 function StarRating({ count }) {
@@ -109,13 +115,22 @@ export default function Testimonials() {
           </h2>
           <div className="testimonials__meta">
             <StarRating count={5} />
-            <span className="testimonials__avg">5.0 average · 200+ reviews</span>
+            <span className="testimonials__avg">5.0 average - 200+ reviews</span>
           </div>
+        </div>
+
+        <div className="testimonials__summary reveal delay-1">
+          {TRUST_SUMMARY.map((item) => (
+            <div key={item.label} className="testimonials__summary-item">
+              <strong>{item.value}</strong>
+              <span>{item.label}</span>
+            </div>
+          ))}
         </div>
 
         {/* Main featured review */}
         <div
-          className="testimonials__featured reveal delay-1"
+          className="testimonials__featured reveal delay-2"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
@@ -126,7 +141,7 @@ export default function Testimonials() {
           </div>
 
           <blockquote className="testimonials__quote">
-            "{featured.text}"
+            {featured.text}
           </blockquote>
 
           <div className="testimonials__reviewer">
@@ -180,7 +195,7 @@ export default function Testimonials() {
         </div>
 
         {/* Reviewer thumbnail strip */}
-        <div className="testimonials__strip reveal delay-2">
+        <div className="testimonials__strip reveal delay-3">
           {REVIEWS.map((r, i) => (
             <button
               key={r.id}

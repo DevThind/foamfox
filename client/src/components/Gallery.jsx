@@ -5,7 +5,7 @@ import exteriorBefore from '../assets/gallery/exterior-before.jpeg'
 import exteriorAfter from '../assets/gallery/exterior-after.jpeg'
 import './Gallery.css'
 
-/* Before/After items — using CSS gradients as placeholders (replace with real photos) */
+/* Before/after items */
 const BEFORE_AFTER = [
   {
     id: 1,
@@ -27,6 +27,12 @@ const BEFORE_AFTER = [
     beforeLabel: 'Before',
     afterLabel: 'After',
   },
+]
+
+const RESULT_STATS = [
+  { value: '2', label: 'Live sliders' },
+  { value: '80-90%', label: 'Stain lift where possible' },
+  { value: '100%', label: 'Walkaround before we leave' },
 ]
 
 /* Drag-to-reveal before/after slider */
@@ -109,17 +115,27 @@ export default function Gallery() {
             <span className="text-blue">Foam Fox</span> Difference
           </h2>
           <p className="section-sub">
-            Drag the slider to reveal the transformation. Every job tells a story.
+            Drag the slider to reveal the transformation. Every vehicle gets a finish-focused process.
           </p>
         </div>
 
+        <div className="gallery__stats reveal delay-1">
+          {RESULT_STATS.map((stat) => (
+            <div key={stat.label} className="gallery__stat">
+              <strong>{stat.value}</strong>
+              <span>{stat.label}</span>
+            </div>
+          ))}
+        </div>
+
         {/* Main slider */}
-        <div className="gallery__main reveal delay-1">
+        <div className="gallery__main reveal delay-2">
+          <div className="gallery__main-badge">Before / After</div>
           <BeforeAfterSlider item={BEFORE_AFTER[activeIdx]} />
         </div>
 
         {/* Thumbnails */}
-        <div className="gallery__thumbs reveal delay-2">
+        <div className="gallery__thumbs reveal delay-3">
           {BEFORE_AFTER.map((item, i) => (
             <button
               key={item.id}
@@ -140,7 +156,7 @@ export default function Gallery() {
         </div>
 
         {/* Instagram CTA */}
-        <div className="gallery__instagram reveal delay-3">
+        <div className="gallery__instagram reveal delay-4">
           <div className="gallery__ig-icon" aria-hidden="true">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>

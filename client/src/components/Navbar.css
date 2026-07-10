@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    NAVBAR
    ============================================================ */
 
@@ -60,10 +60,10 @@
 }
 
 .navbar__link {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-label);
   font-weight: 600;
-  font-size: 0.92rem;
-  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-300);
   padding: 0.45rem 0.9rem;
@@ -109,16 +109,16 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-label);
   font-weight: 700;
-  font-size: 0.88rem;
+  font-size: 0.78rem;
   letter-spacing: 0.06em;
   color: var(--silver-300);
   transition: color var(--ease-fast);
 }
 .navbar__phone:hover { color: var(--blue-300); }
 
-.navbar__cta { padding: 0.65rem 1.4rem; font-size: 0.88rem; }
+.navbar__cta { padding: 0.6rem 1.15rem; font-size: 0.78rem; }
 
 /* === Hamburger === */
 .navbar__hamburger {
@@ -190,9 +190,9 @@
 }
 
 .navbar__drawer-link {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-label);
   font-weight: 600;
-  font-size: 1.05rem;
+  font-size: 0.92rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-300);
@@ -212,9 +212,9 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-label);
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.9rem;
   letter-spacing: 0.06em;
   color: var(--silver-300);
   padding: 0.9rem 1rem;
@@ -324,8 +324,8 @@
     border-radius: var(--radius-sm);
     border: 1px solid var(--border-subtle);
     color: var(--silver-200);
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 0.94rem;
+    font-family: var(--font-label);
+    font-size: 0.82rem;
     font-weight: 800;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -348,3 +348,4 @@
     height: calc(100svh - 64px);
   }
 }
+

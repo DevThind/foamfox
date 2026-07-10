@@ -59,9 +59,15 @@ const FEATURES = [
 ]
 
 const PROMISES = [
-  { value: '01', label: 'Inspect', text: 'We assess paint, trim, carpet, seats, and problem areas before starting.' },
-  { value: '02', label: 'Detail', text: 'We clean in stages with paint-safe products and interior-specific tools.' },
-  { value: '03', label: 'Finish', text: 'We review the vehicle with you and handle touch-ups before we leave.' },
+  { value: '01', label: 'Assess', text: 'We inspect paint, trim, carpet, seats, and problem areas before starting.' },
+  { value: '02', label: 'Restore', text: 'We clean in stages with paint-safe products and interior-specific tools.' },
+  { value: '03', label: 'Protect', text: 'We review the finish, apply final touches, and walk the vehicle with you.' },
+]
+
+const QUALITY_POINTS = [
+  'No-rush appointment windows',
+  'Condition-based recommendations',
+  'Final walkaround before payment',
 ]
 
 export default function WhyUs() {
@@ -74,7 +80,7 @@ export default function WhyUs() {
             Built Different. <span className="text-chrome">Driven by Detail.</span>
           </h2>
           <p className="section-sub">
-            We're not just another car wash - we're perfectionists who show up equipped,
+            We are not just another car wash. We show up equipped,
             experienced, and committed to leaving your vehicle immaculate.
           </p>
         </div>
@@ -89,6 +95,23 @@ export default function WhyUs() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="whyus__standard reveal delay-1">
+          <div>
+            <p className="whyus__standard-kicker">Foam Fox standard</p>
+            <h3>Every appointment is treated like a finish inspection.</h3>
+          </div>
+          <ul>
+            {QUALITY_POINTS.map((point) => (
+              <li key={point}>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                {point}
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="whyus__grid">

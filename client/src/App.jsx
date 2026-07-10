@@ -6,7 +6,7 @@ import WhyUs from './components/WhyUs'
 import Gallery from './components/Gallery'
 import Testimonials from './components/Testimonials'
 import ServiceAreas from './components/ServiceAreas'
-import BookingForm from './components/BookingForm'
+import Contact from './components/Contact'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 import './App.css'
@@ -32,14 +32,9 @@ function App() {
         return <Testimonials />
       case '#areas':
         return <ServiceAreas />
-      case '#booking':
-        return <BookingForm />
       case '#contact':
-        return (
-          <div id="contact">
-            <BookingForm />
-          </div>
-        )
+      case '#booking':
+        return <Contact />
       case '#faq':
         return <FAQ />
       case '#home':
@@ -74,7 +69,8 @@ function App() {
 
   useEffect(() => {
     window.requestAnimationFrame(() => {
-      const target = document.querySelector(route)
+      const scrollTarget = route === '#booking' ? '#contact' : route
+      const target = document.querySelector(scrollTarget)
       if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' })
       } else {

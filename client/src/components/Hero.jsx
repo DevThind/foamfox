@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import heroSedan from '../assets/hero-sports-sedan.png'
+import heroDetailingBay from '../assets/hero-detailing-bay.png'
 import { WHATSAPP_BOOKING_URL } from '../utils/contact'
 import './Hero.css'
 
@@ -14,17 +14,23 @@ const BUBBLES = Array.from({ length: 28 }, (_, i) => ({
 
 const STATS = [
   { value: '200+', label: 'Vehicles Detailed' },
-  { value: '5-star', label: 'Client Rated' },
+  { value: '5.0', label: 'Client Rated' },
   { value: '7 days', label: 'Mobile Service' },
   { value: 'GTA', label: 'Service Area' },
 ]
 
-const TRUST_ITEMS = ['Fully mobile setup', 'Premium products', 'Same-day slots']
+const TRUST_ITEMS = ['Self-contained setup', 'Paint-safe products', '1-hour confirmation']
 
 const SERVICE_HIGHLIGHTS = [
   'Interior shampoo and stain extraction',
   'Exterior foam wash and gloss finish',
   'At-home or office appointments',
+]
+
+const PROOF_POINTS = [
+  { value: '01', label: 'Inspect' },
+  { value: '02', label: 'Deep clean' },
+  { value: '03', label: 'Protect' },
 ]
 
 export default function Hero() {
@@ -90,6 +96,15 @@ export default function Hero() {
             and finishing touches handled by a fully mobile team across the GTA.
           </p>
 
+          <div className="hero__proof-row" aria-label="Detailing process">
+            {PROOF_POINTS.map((item) => (
+              <span key={item.value} className="hero__proof-pill">
+                <strong>{item.value}</strong>
+                {item.label}
+              </span>
+            ))}
+          </div>
+
           <div className="hero__trust" aria-label="Service highlights">
             {TRUST_ITEMS.map((item) => (
               <span key={item} className="hero__trust-item">
@@ -134,16 +149,24 @@ export default function Hero() {
         <div className="hero__visual" aria-hidden="true">
           <div className="hero__photo-showcase">
             <div className="hero__photo-glow" />
-            <img className="hero__car-photo" src={heroSedan} alt="" />
+            <img className="hero__car-photo" src={heroDetailingBay} alt="" />
+
+            <div className="hero__visual-label">
+              <span>Premium finish bay</span>
+              <strong>Gloss, glass, trim, tires</strong>
+            </div>
 
             <div className="hero__chip hero__chip--tl">
-              <span>*</span> Mobile Service
+              <span />
+              Mobile Service
             </div>
             <div className="hero__chip hero__chip--tr">
-              <span>*</span> Gloss Finish
+              <span />
+              Gloss Finish
             </div>
             <div className="hero__chip hero__chip--bl">
-              <span>*</span> Premium Products
+              <span />
+              Premium Products
             </div>
             <div className="hero__finish-panel">
               <span className="hero__finish-label">Current focus</span>

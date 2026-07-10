@@ -2,15 +2,31 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  isolation: isolate;
+  background:
+    linear-gradient(180deg, rgba(4,5,12,0.16), rgba(4,5,12,0.88)),
+    radial-gradient(ellipse 140% 60% at 50% -10%, rgba(0,148,255,0.16), transparent 58%);
+}
+
+.app::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.018), transparent 14%, transparent 86%, rgba(255,255,255,0.018)),
+    repeating-linear-gradient(0deg, transparent 0 10px, rgba(0,148,255,0.025) 10px 11px);
+  opacity: 0.45;
 }
 
 main {
   flex: 1;
 }
 
-.app main > .section:first-child,
-.app main > #contact > .section:first-child {
-  padding-top: calc(var(--section-py) + 6rem);
+.app main > .section:first-child {
+  padding-top: calc(var(--section-py) + 5.2rem);
 }
 
 @media (max-width: 768px) {
@@ -18,15 +34,13 @@ main {
     padding-bottom: calc(4.25rem + env(safe-area-inset-bottom));
   }
 
-  .app main > .section:first-child,
-  .app main > #contact > .section:first-child {
-    padding-top: calc(var(--section-py) + 4.5rem);
+  .app main > .section:first-child {
+    padding-top: calc(var(--section-py) + 3.75rem);
   }
 }
 
 @media (max-width: 480px) {
-  .app main > .section:first-child,
-  .app main > #contact > .section:first-child {
-    padding-top: calc(var(--section-py) + 3.75rem);
+  .app main > .section:first-child {
+    padding-top: calc(var(--section-py) + 3rem);
   }
 }

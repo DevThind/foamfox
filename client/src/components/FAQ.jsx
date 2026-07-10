@@ -17,7 +17,7 @@ const FAQS = [
   },
   {
     q: 'How do I book an appointment?',
-    a: 'The easiest way is to fill out our booking form on this page. You can also call or text us at 437-929-2037 or send us a DM on Instagram @foamfox_auto_detailing. We confirm all bookings within 1 hour.',
+    a: 'The easiest way is to message us on WhatsApp. You can also call or text 437-929-2037, or send us a DM on Instagram @foamfox_auto_detailing. We confirm all bookings within 1 hour.',
   },
   {
     q: 'What forms of payment do you accept?',

@@ -21,6 +21,7 @@ const PACKAGES = [
     icon: 'BI',
     name: 'Basic Interior',
     tagline: 'A clean interior reset for regular upkeep.',
+    result: 'Fresh cabin, dust-free trim, clear glass',
     prices: { five: 90, large: 120 },
     color: 'blue',
     features: [
@@ -38,6 +39,7 @@ const PACKAGES = [
     icon: 'FI',
     name: 'Full Interior',
     tagline: 'Deeper cleaning for carpets, seats, mats, and trim.',
+    result: 'Stain-focused reset for daily drivers',
     prices: { five: 120, large: 150 },
     color: 'blue',
     features: [
@@ -56,6 +58,7 @@ const PACKAGES = [
     icon: 'B+E',
     name: 'Basic Interior + Exterior',
     tagline: 'Interior refresh with a clean hand-washed exterior.',
+    result: 'Best value for inside-out shine',
     prices: { five: 130, large: 160 },
     popular: true,
     color: 'gold',
@@ -74,6 +77,7 @@ const PACKAGES = [
     icon: 'F+E',
     name: 'Full Interior + Exterior',
     tagline: 'Full interior detail plus exterior shine and protection.',
+    result: 'Complete mobile detail with protection',
     prices: { five: 160, large: 190 },
     color: 'silver',
     features: [
@@ -93,6 +97,21 @@ const ADD_ONS = [
   { name: 'Pet Hair Removal', price: '$20-$50', note: 'Depends on amount of pet hair' },
   { name: 'Heavy Stain Removal', price: 'Starting at $20', note: 'Quoted by condition' },
   { name: 'Excessive Dirt/Sand Cleanup', price: 'Quoted upon inspection', note: 'For heavy soil, sand, or debris' },
+]
+
+const SERVICE_STANDARDS = [
+  {
+    title: 'Paint-safe exterior care',
+    text: 'Gentle hand-wash process, wheel focus, towel dry, and gloss finish options.',
+  },
+  {
+    title: 'Interior reset system',
+    text: 'Vacuum, crevice work, trim wipe-down, mats, glass, deodorizing, and stain attention.',
+  },
+  {
+    title: 'Mobile convenience',
+    text: 'We arrive prepared for your driveway, office lot, or approved parking area.',
+  },
 ]
 
 function createPackageMessage(pkg, vehicleGroup) {
@@ -134,7 +153,19 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="services__vehicle-tabs reveal delay-1">
+        <div className="services__signature reveal delay-1">
+          {SERVICE_STANDARDS.map((item, index) => (
+            <div key={item.title} className="services__signature-item">
+              <span className="services__signature-number">{String(index + 1).padStart(2, '0')}</span>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="services__vehicle-tabs reveal delay-2">
           <p className="services__vehicle-label">Select your vehicle group</p>
           <div className="services__vehicle-pills">
             {VEHICLE_GROUPS.map((group) => (
@@ -167,6 +198,8 @@ export default function Services() {
                   <p className="services__tagline">{pkg.tagline}</p>
                 </div>
               </div>
+
+              <p className="services__result">{pkg.result}</p>
 
               <div className="services__price-row">
                 <div className="services__price">
